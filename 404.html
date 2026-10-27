@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rabindra Dhakal | Brand Designer</title>
+  <meta name="description" content="Rabindra Dhakal — new website coming soon.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #1c1c1c;
+      --line: #dcdcdc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px clamp(16px, 2.2vw, 44px);
+      position: relative;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: clamp(24px, 2.3vw, 42px);
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .logo .sep { font-weight: 400; color: #b5b5b5; margin: 0 0.15em; }
+    .logo .role { font-weight: 400; letter-spacing: -0.02em; }
+    @media (max-width: 520px) {
+      .logo { font-size: 20px; line-height: 1.2; }
+      .logo .sep { display: none; }
+      .logo .role { display: block; font-size: 16px; color: #555; }
+      header .menu-btn { width: 56px; height: 46px; }
+      header nav { top: 80px; }
+    }
+    .menu-btn {
+      width: 78px;
+      height: 56px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+    .menu-btn span,
+    .menu-btn span::before,
+    .menu-btn span::after {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--ink);
+      position: relative;
+      transition: transform .25s, background .25s;
+    }
+    .menu-btn span::before,
+    .menu-btn span::after { content: ""; position: absolute; left: 0; }
+    .menu-btn span::before { top: -8px; }
+    .menu-btn span::after { top: 8px; }
+    .menu-open .menu-btn span { background: transparent; }
+    .menu-open .menu-btn span::before { transform: translateY(8px) rotate(45deg); }
+    .menu-open .menu-btn span::after { transform: translateY(-8px) rotate(-45deg); }
+
+    nav {
+      position: absolute;
+      top: 92px;
+      right: clamp(16px, 2.2vw, 44px);
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      min-width: 200px;
+      opacity: 0;
+      transform: translateY(-6px);
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      z-index: 10;
+    }
+    .menu-open nav { opacity: 1; transform: none; pointer-events: auto; }
+    nav a {
+      display: block;
+      padding: 10px 12px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 6px;
+    }
+    nav a:hover { background: #f3f3f3; }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0 clamp(16px, 2.2vw, 44px) 48px;
+    }
+    h1 {
+      font-weight: 400;
+      font-size: clamp(30px, 3.3vw, 62px);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      max-width: 15em;
+      margin-top: clamp(16px, 2.5vw, 40px);
+    }
+    .eyes-wrap {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 48px 0;
+    }
+    .eyes { width: min(480px, 80vw); height: auto; overflow: visible; }
+    .brow { transition: transform .3s ease; transform-box: fill-box; transform-origin: center; }
+    .surprised .brow { transform: translateY(-14px); }
+    .lid {
+      transform-box: fill-box;
+      transform-origin: top;
+      transform: scaleY(0);
+      animation: blink 5s infinite;
+    }
+    @keyframes blink {
+      0%, 94%, 100% { transform: scaleY(0); }
+      97% { transform: scaleY(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .lid { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="/">Rabindra Dhakal <span class="sep">|</span> <span class="role">Brand Designer</span></a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    <nav aria-label="Main">
+      <a href="/">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Uh oh, the graphic designer you’re looking for can’t be found.</h1>
+
+    <div class="eyes-wrap">
+      <svg class="eyes" viewBox="0 0 480 320" role="img" aria-label="A pair of cartoon eyes looking around">
+        <defs>
+          <clipPath id="clipL"><circle cx="120" cy="200" r="102"/></clipPath>
+          <clipPath id="clipR"><circle cx="360" cy="200" r="102"/></clipPath>
+        </defs>
+
+        <!-- eyebrows -->
+        <path class="brow" d="M45 48 Q120 -12 195 48" fill="none" stroke="#000" stroke-width="22" stroke-linecap="round"/>
+        <path class="brow" d="M285 48 Q360 -12 435 48" fill="none" stroke="#000" stroke-width="22" stroke-linecap="round"/>
+
+        <!-- left eye -->
+        <circle cx="120" cy="200" r="106" fill="#fff" stroke="var(--ink)" stroke-width="16"/>
+        <circle class="pupil" data-cx="120" data-cy="200" cx="142" cy="153" r="37" fill="var(--ink)"/>
+        <rect class="lid" x="10" y="90" width="220" height="220" fill="var(--ink)" clip-path="url(#clipL)"/>
+
+        <!-- right eye -->
+        <circle cx="360" cy="200" r="106" fill="#fff" stroke="var(--ink)" stroke-width="16"/>
+        <circle class="pupil" data-cx="360" data-cy="200" cx="382" cy="153" r="37" fill="var(--ink)"/>
+        <rect class="lid" x="250" y="90" width="220" height="220" fill="var(--ink)" clip-path="url(#clipR)"/>
+      </svg>
+    </div>
+  </main>
+
+  <script>
+    // Menu toggle
+    const btn = document.querySelector('.menu-btn');
+    btn.addEventListener('click', () => {
+      const open = document.body.classList.toggle('menu-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+
+    // Pupils follow the cursor / finger
+    const svg = document.querySelector('.eyes');
+    const pupils = document.querySelectorAll('.pupil');
+    const MAX = 52; // how far a pupil can travel from the eye centre
+
+    function look(clientX, clientY) {
+      const box = svg.getBoundingClientRect();
+      const scale = 480 / box.width;
+      const x = (clientX - box.left) * scale;
+      const y = (clientY - box.top) * scale;
+      pupils.forEach(p => {
+        const cx = +p.dataset.cx, cy = +p.dataset.cy;
+        const dx = x - cx, dy = y - cy;
+        const dist = Math.hypot(dx, dy);
+        const r = Math.min(MAX, dist / 2);
+        const a = Math.atan2(dy, dx);
+        p.setAttribute('cx', cx + Math.cos(a) * r);
+        p.setAttribute('cy', cy + Math.sin(a) * r);
+      });
+    }
+
+    window.addEventListener('mousemove', e => look(e.clientX, e.clientY));
+    window.addEventListener('touchmove', e => {
+      const t = e.touches[0];
+      look(t.clientX, t.clientY);
+    }, { passive: true });
+
+    // Raise eyebrows on click
+    window.addEventListener('mousedown', () => svg.classList.add('surprised'));
+    window.addEventListener('mouseup', () => svg.classList.remove('surprised'));
+  </script>
+</body>
+</html>
